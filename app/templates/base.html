@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BookHive — Your Bookstore</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="{{ url_for('index') }}" class="brand">BookHive</a>
+      <form action="{{ url_for('search') }}" class="search" method="get">
+        <input name="q" placeholder="Search books, authors, ISBN..." />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>© {{ 2025 }} BookHive</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+{% if not book %}
+  <h2>Book not found</h2>
+  <p>Try another query.</p>
+{% else %}
+<div class="book-page">
+  <div class="book-meta">
+    <img src="{{ url_for('static', filename='images/placeholder_book.jpg') }}" alt="cover">
+    <div>
+      <h1>{{ book['title'] }}</h1>
+      <p class="muted">{{ book['authors'] }}</p>
+      <p>⭐ {{ book['average_rating'] }} · {{ book['ratings_count'] }} ratings</p>
+      <p>Pages: {{ book['num_pages'] }}</p>
+      <a class="buy-btn" href="#">Buy now — ₹499</a>
+    </div>
+  </div>
+
+  <section class="recommendations">
+    <h3>People who viewed this also liked</h3>
+    <div class="cards-grid">
+      {% for r in recs %}
+      <a class="card small" href="{{ url_for('book_detail') }}?title={{ r['title'] | urlencode }}">
+        <img src="{{ url_for('static', filename='images/placeholder_book.jpg') }}" alt="cover">
+        <div class="card-body">
+          <h4>{{ r['title'] | truncate(40) }}</h4>
+          <p class="muted">{{ r['authors'] | truncate(30) }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endif %}
+{% endblock %}
