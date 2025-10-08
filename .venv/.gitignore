@@ -11,50 +11,49 @@ __pycache__/
 .Python
 *.log
 
-# --- uv virtual environment ---
+# --- Virtual environment (uv / venv) ---
 .venv/
 .uv/
+pyvenv.cfg
+CACHE*
 
-# Keep uv.lock for reproducibility
-# uv.lock
+# Keep .lock for reproducibility
+# (do NOT ignore the .lock file)
+# .lock
 
-# --- Jupyter ---
+# --- Jupyter notebooks ---
 .ipynb_checkpoints/
 *.ipynb_save
-*.ipynb_convert
 *.nbconvert.ipynb
 
-# --- Data and models ---
+# --- Project folders ---
 /data/
 *.csv
 *.tsv
 *.json
 *.xlsx
-*.pickle
 *.pkl
 *.joblib
 *.h5
 *.hdf5
-*.db
 *.sqlite
+*.db
 
-# --- Model artifacts ---
-/models/
+/model/
 *.pt
 *.onnx
 *.tflite
+*.pickle
 
-# --- Flask related ---
+# --- Flask app ---
 instance/
-*.db
-*.sqlite3
-*.log
 *.env
 .env.*
 .env.local
 config.py
+*.log
 
-# --- IDE and editor files ---
+# --- IDE and editor ---
 .vscode/
 .idea/
 *.swp
@@ -77,7 +76,7 @@ dist/
 .coverage.*
 htmlcov/
 
-# --- Temporary files ---
+# --- Temporary ---
 tmp/
 temp/
 *.tmp
